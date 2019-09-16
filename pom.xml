@@ -10,7 +10,7 @@
   	<jmockit.coverage-classes>loaded</jmockit.coverage-classes>
   	<jmockit.coverage-check>40</jmockit.coverage-check>
   	<checkstyle.file.path>checkstyle.xml</checkstyle.file.path>
-    <checkstyle.latest.version>8.11</checkstyle.latest.version>
+    <checkstyle.latest.version>[8.18,)</checkstyle.latest.version>
   </properties>
   <dependencies>
     <dependency>
