@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.ibra</groupId>
+  <artifactId>retail</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Retail Project</name>
+  <properties>
+  	<jmockit.version>1.46</jmockit.version>
+  	<jmockit.coverage-metrics>all</jmockit.coverage-metrics>
+  	<jmockit.coverage-classes>loaded</jmockit.coverage-classes>
+  	<jmockit.coverage-check>40</jmockit.coverage-check>
+  	<checkstyle.file.path>checkstyle.xml</checkstyle.file.path>
+    <checkstyle.latest.version>8.11</checkstyle.latest.version>
+  </properties>
+  <dependencies>
+    <dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		<version>1.2.3</version>
+	</dependency>
+  	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	    <scope>test</scope>
+	</dependency>
+	<dependency>
+	    <groupId>org.jmockit</groupId>
+	    <artifactId>jmockit</artifactId>
+	    <version>${jmockit.version}</version>
+	    <scope>test</scope>
+	</dependency>
+  </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+        	<artifactId>maven-compiler-plugin</artifactId>
+        	<version>3.8.0</version>
+            <configuration>
+            	<source>1.8</source>
+            	<target>1.8</target>
+            </configuration>
+        </plugin>
+        <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-surefire-plugin</artifactId>
+	        <version>3.0.0-M3</version>
+	        <configuration>
+	          <parallel>methods</parallel>
+	          <threadCount>2</threadCount>
+	          <argLine>
+	          	-javaagent:${settings.localRepository}/org/jmockit/jmockit/${jmockit.version}/jmockit-${jmockit.version}.jar 
+	          	-Dcoverage-metrics=${jmockit.coverage-metrics}
+	          	-Dcoverage-classes=${jmockit.coverage-classes}
+	          </argLine>
+
+			  <systemPropertyVariables>
+		        <!-- At least one of the following needs to be set: -->
+		        <coverage-output>html</coverage-output>     <!-- or: html-nocp, serial, serial-append or none to switch it off -->
+		        <!--<coverage-metrics>all</coverage-metrics>-->   <!-- or: line, path, data -->
+		        <!-- <coverage-classes>loaded</coverage-classes>--> <!-- or a "*" expression for class names -->
+
+		        <!-- Other properties, if needed: -->
+		        <!-- <coverage-outputDir>target/coverage-report</coverage-outputDir>-->     <!-- default: target/coverage-report -->
+		        <!-- <coverage-srcDirs>src</coverage-srcDirs> -->         <!-- default: all "src" directories -->
+		        <!-- <coverage-excludes></coverage-excludes> -->	  	  <!-- default: empty -->
+		        <coverage-check>${jmockit.coverage-check}</coverage-check>               <!-- default: no checks -->
+		      </systemPropertyVariables>
+	        </configuration>
+	    </plugin>
+	    <plugin>
+           <artifactId>maven-checkstyle-plugin</artifactId>
+           <version>3.0.0</version>
+           <dependencies>
+               <dependency>
+                   <groupId>com.puppycrawl.tools</groupId>
+                   <artifactId>checkstyle</artifactId>
+                   <version>${checkstyle.latest.version}</version>
+               </dependency>
+           </dependencies>
+           <configuration>
+               <!-- Use the Sun Conding Conventions https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/sun_checks.xml -->
+               <configLocation>${checkstyle.file.path}</configLocation>
+               <consoleOutput>true</consoleOutput>
+               <failOnViolation>false</failOnViolation>
+           </configuration>
+           <executions>
+             <execution>
+               <goals>
+                  <goal>check</goal>
+               </goals>
+             </execution>
+           </executions>
+       </plugin>
+  	</plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.2</version>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
