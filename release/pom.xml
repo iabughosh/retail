@@ -3,9 +3,10 @@
   <parent>
     <groupId>org.ibra</groupId>
     <artifactId>retail</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
   <artifactId>release</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
   <scm>
   	<developerConnection>scm:git:https://github.com/iabughosh/retail</developerConnection>
     <tag>v0.0.1</tag>
