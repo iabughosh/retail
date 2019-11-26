@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.ibra</groupId>
   <artifactId>retail</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>Retail Project</name>
   <packaging>pom</packaging>
   <properties>
@@ -13,6 +13,10 @@
   	<checkstyle.file.path>checkstyle.xml</checkstyle.file.path>
     <checkstyle.latest.version>[8.18,)</checkstyle.latest.version>
   </properties>
+  <scm>
+  	<developerConnection>scm:git:https://github.com/iabughosh/retail</developerConnection>
+    <tag>v0.0.1</tag>
+  </scm>
   <dependencies>
     <dependency>
 		<groupId>ch.qos.logback</groupId>
@@ -101,6 +105,15 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
         <version>3.0.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+        	<tagBase>https://github.com/iabughosh/retail/releases</tagBase>
+        	<tagNameFormat>v@{project.version}</tagNameFormat>
+        </configuration>
       </plugin>
     </plugins>
   </reporting>

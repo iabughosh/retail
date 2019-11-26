@@ -7,21 +7,4 @@
   </parent>
   <artifactId>release</artifactId>
   <version>0.0.2-SNAPSHOT</version>
-  <scm>
-  	<developerConnection>scm:git:https://github.com/iabughosh/retail</developerConnection>
-    <tag>v0.0.1</tag>
-  </scm>
-  <build>
-  	<plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
-        <configuration>
-        	<tagBase>https://github.com/iabughosh/retail/releases</tagBase>
-        	<tagNameFormat>v@{project.version}</tagNameFormat>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
