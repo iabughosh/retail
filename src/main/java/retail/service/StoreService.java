@@ -14,7 +14,6 @@ import retail.domain.User;
  * but, we are using this one just for demo and mocking.
  * 
  * @author ibrahim
- *
  */
 public class StoreService {
 	
@@ -43,8 +42,10 @@ public class StoreService {
 		Random random = new Random();
 		int number = random.nextInt(3);
 		
-		return number == 1 ? new Affiliate(user.getName(), user.getSubscriptionDate())
-				: number == 2 ? new Employee(user.getName(), user.getSubscriptionDate()) 
-				: new NormalUser(user.getName(), user.getSubscriptionDate());
+		switch(number) {
+		case 1: return new Affiliate(user.getName(), user.getSubscriptionDate());
+		case 2: return new Employee(user.getName(), user.getSubscriptionDate());
+		default:return new NormalUser(user.getName(), user.getSubscriptionDate());
+		}
 	}
 }

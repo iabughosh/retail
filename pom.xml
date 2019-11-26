@@ -4,7 +4,6 @@
   <artifactId>retail</artifactId>
   <version>0.0.1</version>
   <name>Retail Project</name>
-  <packaging>pom</packaging>
   <properties>
   	<jmockit.version>1.46</jmockit.version>
   	<jmockit.coverage-metrics>all</jmockit.coverage-metrics>
@@ -118,7 +117,4 @@
       </plugin>
     </plugins>
   </reporting>
-  <modules>
-  	<module>release</module>
-  </modules>
 </project>
