@@ -113,6 +113,7 @@
         <configuration>
         	<tagBase>https://github.com/iabughosh/retail/releases</tagBase>
         	<tagNameFormat>v@{project.version}</tagNameFormat>
+        	<preparationGoals>clean verify</preparationGoals>
         </configuration>
       </plugin>
     </plugins>
