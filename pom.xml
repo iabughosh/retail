@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.ibra</groupId>
   <artifactId>retail</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.5</version>
   <name>Retail Project</name>
   <properties>
   	<jmockit.version>1.46</jmockit.version>
@@ -14,7 +14,7 @@
   </properties>
   <scm>
   	<developerConnection>scm:git:https://github.com/iabughosh/retail</developerConnection>
-    <tag>v0.0.1</tag>
+    <tag>retail-0.0.5</tag>
   </scm>
   <dependencies>
     <dependency>
